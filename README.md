@@ -16,5 +16,11 @@ This will set the env variable for the right kubeconfig context.
 
 3. Use the URL of this repo to register a kubectl tool.
 
-4. Add the tool to agent and chat!
+4. Add the tool to agent and chat! To test if it's working, ask the agent to get pods. 
+Make sure there are pods running in the cluster. 
+You can run to start 2 sample pods.
+```
+kubectl apply -f wordpress.yaml
+kubectl apply -f pv.yaml
+```
 
