@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 import gptscript
+import shlex
 
 
 # from: https://github.com/otto8-ai/tools/blob/main/google/gmail/helpers.py#L277C1-L312C46
@@ -65,7 +66,8 @@ async def main():
         print("COMMAND is not set, it is required.")
         sys.exit(1)
     if command:
-        kubectl_command = base_command + [command]
+        command_args = shlex.split(command)
+        kubectl_command = base_command + command_args
     else:
         kubectl_command = base_command
 
