@@ -77,10 +77,11 @@ async def main():
         # Output the result
         if output_file:
             try:
-                await save_to_gptscript_workspace(output_file, result.stdout)
+                content = str(result.stdout)
+                await save_to_gptscript_workspace(output_file, content)
                 print(f"Output has been saved to {output_file} in the workspace files directory.")
             except Exception as e:
-                print("Failed to save to workspace, saving to local file instead.")
+                print(f"Failed to save to workspace, error: {e}.\n Saving to local file instead.")
                 with open(output_file, "w") as f:
                     f.write(result.stdout)
         else:
