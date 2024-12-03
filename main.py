@@ -49,7 +49,7 @@ def prepend_base_path(base_path: str, file_path: str):
 async def save_to_gptscript_workspace(filepath: str, content: str) -> None:
     gptscript_client = gptscript.GPTScript()
     wksp_file_path = prepend_base_path('files', filepath)
-    await gptscript_client.write_file_to_workspace(wksp_file_path, content.encode('utf-8'))
+    await gptscript_client.write_file_in_workspace(wksp_file_path, content.encode('utf-8'))
 
 
 async def main():
